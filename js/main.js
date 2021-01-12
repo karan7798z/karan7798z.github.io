@@ -29,7 +29,7 @@
 
 	// loader
 	var loader = function() {
-		setTimeout(function() { 
+		setTimeout(function() {
 			if($('#ftco-loader').length > 0) {
 				$('#ftco-loader').removeClass('show');
 			}
@@ -52,11 +52,11 @@
 			if ( $('#ftco-nav').is(':visible') ) {
 				$(this).removeClass('active');
 			} else {
-				$(this).addClass('active');	
+				$(this).addClass('active');
 			}
 
-			
-			
+
+
 		});
 
 	};
@@ -81,7 +81,7 @@
 	};
 
 	onePageClick();
-	
+
 
 	var carousel = function() {
 		$('.home-slider').owlCarousel({
@@ -143,19 +143,19 @@
 
 			if (st > 150) {
 				if ( !navbar.hasClass('scrolled') ) {
-					navbar.addClass('scrolled');	
+					navbar.addClass('scrolled');
 				}
-			} 
+			}
 			if (st < 150) {
 				if ( navbar.hasClass('scrolled') ) {
 					navbar.removeClass('scrolled sleep');
 				}
-			} 
+			}
 			if ( st > 350 ) {
 				if ( !navbar.hasClass('awake') ) {
-					navbar.addClass('awake');	
+					navbar.addClass('awake');
 				}
-				
+
 				if(sd.length > 0) {
 					sd.addClass('sleep');
 				}
@@ -173,10 +173,10 @@
 	};
 	scrollWindow();
 
-	
+
 
 	var counter = function() {
-		
+
 		$('#section-counter, .hero-wrap, .ftco-counter, .ftco-about').waypoint( function( direction ) {
 
 			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
@@ -193,7 +193,7 @@
 					  }, 7000
 					);
 				});
-				
+
 			}
 
 		} , { offset: '95%' } );
@@ -207,7 +207,7 @@
 		$('.ftco-animate').waypoint( function( direction ) {
 
 			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
-				
+
 				i++;
 
 				$(this.element).addClass('item-animate');
@@ -229,9 +229,9 @@
 							el.removeClass('item-animate');
 						},  k * 20, 'easeInOutExpo' );
 					});
-					
+
 				}, 100);
-				
+
 			}
 
 		} , { offset: '95%' } );
@@ -273,13 +273,13 @@
   var goHere = function() {
 
 		$('.mouse-icon').on('click', function(event){
-			
+
 			event.preventDefault();
 
 			$('html,body').animate({
 				scrollTop: $('.goto-here').offset().top
 			}, 500, 'easeInOutExpo');
-			
+
 			return false;
 		});
 	};
@@ -366,7 +366,7 @@ window.onload = function() {
   var id = false;
   //variable for the selection of the anchors in the navbar
   var $navbara = $('#navi a');
-  
+
   $navbara.click(function(e){
     //prevent the page from refreshing
     e.preventDefault();
@@ -376,14 +376,14 @@ window.onload = function() {
 },500);
     hash($(this).attr('href'));
   });
-  
-  
-  
+
+
+
   //select all the anchors in the navbar one after another
   $navbara.each(function(){
    // and adds them in the sections variable
     sections.push($($(this).attr('href')));
-    
+
   })
   $(window).scroll(function(e){
     // scrollTop retains the value of the scroll top with the reference at the middle of the page
@@ -391,7 +391,7 @@ window.onload = function() {
     //cycle through the values in sections array
     for (var i in sections) {
       var section = sections[i];
-      //if scrollTop variable is bigger than the top offset of a section in the sections array then 
+      //if scrollTop variable is bigger than the top offset of a section in the sections array then
       if (scrollTop > section.offset().top){
         var scrolled_id = section.attr('id');
       }
@@ -399,7 +399,7 @@ window.onload = function() {
     if (scrolled_id !== id) {
       id = scrolled_id;
       $($navbara).removeClass('current');
-      $('#navi a[href="#' + id + '"]').addClass('current'); 
+      $('#navi a[href="#' + id + '"]').addClass('current');
     }
   })
 })(jQuery);
@@ -440,3 +440,102 @@ $(function() {
 
 });
 
+
+
+//Detect Closest Edge
+function closestEdge(x,y,w,h) {
+    var topEdgeDist = distMetric(x,y,w/2,0);
+    var bottomEdgeDist = distMetric(x,y,w/2,h);
+    var leftEdgeDist = distMetric(x,y,0,h/2);
+    var rightEdgeDist = distMetric(x,y,w,h/2);
+    var min = Math.min(topEdgeDist,bottomEdgeDist,leftEdgeDist,rightEdgeDist);
+    switch (min) {
+        case leftEdgeDist:
+            return "left";
+        case rightEdgeDist:
+            return "right";
+        case topEdgeDist:
+            return "top";
+        case bottomEdgeDist:
+            return "bottom";
+    }
+}
+
+//Distance Formula
+function distMetric(x,y,x2,y2) {
+    var xDiff = x - x2;
+    var yDiff = y - y2;
+    return (xDiff * xDiff) + (yDiff * yDiff);
+}
+
+
+var boxes = document.querySelectorAll(".project");
+
+for(var i = 0; i < boxes.length; i++){
+
+    boxes[i].onmouseenter = function(e){
+        var x = e.offsetX - this.offsetLeft;
+        var y = e.offsetY - this.offsetTop;
+        var edge = closestEdge(x,y,this.clientWidth, this.clientHeight);
+        var overlay = this.childNodes[1];
+        //var image = this.childNodes[0];
+
+        switch(edge){
+            case "left":
+                //tween overlay from the left
+                overlay.style.top = "0%";
+                overlay.style.left = "-100%";
+                TweenMax.to(overlay, .5, {left: '0%'});
+                //TweenMax.to(image, .5, {scale: 1.2});
+                break;
+            case "right":
+                overlay.style.top = "0%";
+                overlay.style.left = "100%";
+                //tween overlay from the right
+                TweenMax.to(overlay, .5, {left: '0%'});
+                //TweenMax.to(image, .5, {scale: 1.2});
+                break;
+            case "top":
+                overlay.style.top = "-100%";
+                overlay.style.left = "0%";
+                //tween overlay from the right
+                TweenMax.to(overlay, .5, {top: '0%'});
+                //TweenMax.to(image, .5, {scale: 1.2});
+                break;
+            case "bottom":
+                overlay.style.top = "100%";
+                overlay.style.left = "0%";
+                //tween overlay from the right
+                TweenMax.to(overlay, .5, {top: '0%'});
+                //TweenMax.to(image, .5, {scale: 1.2});
+                break;
+        }
+    };
+
+
+    boxes[i].onmouseleave = function(e){
+        var x = e.offsetX - this.offsetLeft;
+        var y = e.offsetY - this.offsetTop;
+        var edge = closestEdge(x,y,this.clientWidth, this.clientHeight);
+        var overlay = this.childNodes[1];
+        //var image = this.childNodes[1];
+        switch(edge){
+            case "left":
+                TweenMax.to(overlay, .5, {left: '-100%'});
+                //TweenMax.to(image, .5, {scale: 1.0});
+                break;
+            case "right":
+                TweenMax.to(overlay, .5, {left: '100%'});
+                //TweenMax.to(image, .5, {scale: 1.0});
+                break;
+            case "top":
+                TweenMax.to(overlay, .5, {top: '-100%'});
+                //TweenMax.to(image, .5, {scale: 1.0});
+                break;
+            case "bottom":
+                TweenMax.to(overlay, .5, {top: '100%'});
+                //TweenMax.to(image, .5, {scale: 1.0});
+                break;
+        }
+    };
+}
