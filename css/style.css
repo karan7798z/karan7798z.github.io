@@ -2785,18 +2785,20 @@ textarea.form-control {
   transition: box-shadow 0.2s ease-in-out;
 }
 
-.project-section{
-  list-style: none;
-  display: block;
-  position: relative;
-  padding: 0;
-  margin: 0;
+#projectFilter{
+  text-align: center;
+  margin-bottom: 0.7rem;
 }
 
 .projects{
   float: left;
   padding: 0;
   margin: 0;
+  display: none;
+}
+
+.showProject{
+  display: block;
 }
 
 .project {
@@ -12304,6 +12306,14 @@ h1, h2, h3, h4, h5,
 
 .ftco-hireme p {
     color: rgba(255, 255, 255, 0.9);
+}
+
+.project-cols{
+  margin: 8px-16px;
+}
+
+.project-cols > .projects{
+  padding: 0.5rem;
 }
 
 .project .overlay {

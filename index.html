@@ -266,8 +266,55 @@
             <h2 class="mb-4">My Projects</h2>
           </div>
         </div>
-    		<div class="row no-gutters">
-          <div class="col-md-4 projects">
+
+        <div id="projectFilter">
+          <button class="btn btn-light active" onclick="filterSelection('all')">All</button>
+          <button class="btn btn-light" onclick="filterSelection('dataEngineering')">Data Engineering</button>
+          <button class="btn btn-light" onclick="filterSelection('machineLearning')">Machine Learning</button>
+          <button class="btn btn-light" onclick="filterSelection('dataAnalysis')">Data Analysis</button>
+          <button class="btn btn-light" onclick="filterSelection('dataViz')">Data Visualization</button>
+        </div>
+
+    		<div class="row no-gutters project-cols">
+          <div class="col-md-4 projects dataEngineering dataViz">
+            <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/tracksentimentality.png);">
+              <div class="overlay"></div>
+              <div class="text text-center p-4">
+                <h3>Quantifying sentimentality of tracks by my favorite artists</h3>
+                <span>Sentiment Analysis, ETL, Web Scraping, Dashboard</span>
+                <ul class = "text-center ftco-project-links list-unstyled">
+                  <li class="ftco-animate"><a href="https://github.com/karan7798z/Artist-Sentimentality-Quantification" target="_blank"><span class="project-icon icon-github"></span></a></li>
+                  <li class="ftco-animate"><a href="https://public.tableau.com/profile/karan.rakesh.gupta#!/vizhome/ArtistSentimentalityDistribution/Dashboard1" target="_blank"><span class="project-icon icon-link"></span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 projects machineLearning dataAnalysis">
+            <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/covid19.jpg);">
+              <div class="overlay"></div>
+              <div class="text text-center p-4">
+                <h3>Predicting Rate of spread of COVID-19</h3>
+                <span>Regression, Regularization, Trees, Ensemble Methods, Model Selection</span>
+                <ul class = "text-center ftco-project-links list-unstyled">
+                  <li class="ftco-animate"><a href="https://github.com/karan7798z/Prediction-of-Rate-of-Spread-of-COVID-19" target="_blank"><span class="project-icon icon-github"></span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 projects dataEngineering dataViz">
+            <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/dashboard.png);">
+              <div class="overlay"></div>
+              <div class="text text-center p-4">
+                <h3>Real time COVID-19 Dashboard</h3>
+                <span>Data Visualization</span>
+              <ul class = "text-center ftco-project-links list-unstyled">
+                <li class="ftco-animate"><a href="https://github.com/karan7798z/COVID-19-Real-time-Dashboard" target="_blank"><span class="project-icon icon-github"></span></a></li>
+                <li class="ftco-animate"><a href="https://public.tableau.com/profile/karan.rakesh.gupta#!/vizhome/COVID-19_15844231812360/GeographicalDistribution" target="_blank"><span class="project-icon icon-link"></span></a></li>
+              </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 projects dataAnalysis">
   					<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/Time%20Series%20Analysis.png);">
   						<div class="overlay"></div>
   						<div class="text text-center p-4">
@@ -279,7 +326,7 @@
   						</div>
   					</div>
   				</div>
-  				<div class="col-md-4 projects">
+  				<div class="col-md-4 projects dataViz dataAnalysis">
   					<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/KPMG-Dashboard.png);">
   						<div class="overlay"></div>
   						<div class="text text-center p-4">
@@ -292,7 +339,7 @@
   						</div>
   					</div>
   				</div>
-  				<div class="col-md-4 projects">
+  				<div class="col-md-4 projects machineLearning">
   					<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/movie-recommender.jpeg);">
   						<div class="overlay"></div>
   						<div class="text text-center p-4">
@@ -304,68 +351,55 @@
   						</div>
   					</div>
   				</div>
-      			<div class="col-md-4 projects">
-      				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/dashboard.png);">
-      					<div class="overlay"></div>
-  	    				<div class="text text-center p-4">
-  	    					<h3>Real time COVID-19 Dashboard</h3>
-  	    					<span>Data Visualization</span>
-  							<ul class = "text-center ftco-project-links list-unstyled">
-  								<li class="ftco-animate"><a href="https://github.com/karan7798z/COVID-19-Real-time-Dashboard" target="_blank"><span class="project-icon icon-github"></span></a></li>
-  								<li class="ftco-animate"><a href="https://public.tableau.com/profile/karan.rakesh.gupta#!/vizhome/COVID-19_15844231812360/GeographicalDistribution" target="_blank"><span class="project-icon icon-link"></span></a></li>
-  							</ul>
-  	    				</div>
-      				</div>
+  				<div class="col-md-4 projects machineLearning dataAnalysis">
+    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/house-price-prediction.png);">
+    					<div class="overlay"></div>
+	    				<div class="text text-center p-4">
+	    					<h3>House Price Prediction</h3>
+	    					<span>Feature Engineering, EDA, Regression</span>
+							<ul class = "text-center ftco-project-links list-unstyled">
+								<li class="ftco-animate"><a href="https://github.com/karan7798z/House-Price-Prediction" target="_blank"><span class="project-icon icon-github"></span></a></li>
+							</ul>
+	    				</div>
     				</div>
-    				<div class="col-md-4 projects">
-      				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/house-price-prediction.png);">
-      					<div class="overlay"></div>
-  	    				<div class="text text-center p-4">
-  	    					<h3>House Price Prediction</h3>
-  	    					<span>Feature Engineering, EDA, Regression</span>
-  							<ul class = "text-center ftco-project-links list-unstyled">
-  								<li class="ftco-animate"><a href="https://github.com/karan7798z/House-Price-Prediction" target="_blank"><span class="project-icon icon-github"></span></a></li>
-  							</ul>
-  	    				</div>
-      				</div>
+  				</div>
+    			<div class="col-md-4 projects machineLearning">
+    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/oil-rig.jpg);">
+    					<div class="overlay"></div>
+	    				<div class="text text-center p-4">
+	    					<h3>Equipment Failure Prediction</h3>
+	    					<span>Feature Scaling, Classification Techniques</span>
+							<ul class = "text-center ftco-project-links list-unstyled">
+								<li class="ftco-animate"><a href="https://www.kaggle.com/riteshs10/conoco-phillips-challenge-team-blaze" target="_blank"><span class="project-icon icon-link"></span></a></li>
+							</ul>
+	    				</div>
     				</div>
-      			<div class="col-md-4 projects">
-      				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/oil-rig.jpg);">
-      					<div class="overlay"></div>
-  	    				<div class="text text-center p-4">
-  	    					<h3>Equipment Failure Prediction</h3>
-  	    					<span>Feature Scaling, Classification Techniques</span>
-  							<ul class = "text-center ftco-project-links list-unstyled">
-  								<li class="ftco-animate"><a href="https://www.kaggle.com/riteshs10/conoco-phillips-challenge-team-blaze" target="_blank"><span class="project-icon icon-link"></span></a></li>
-  							</ul>
-  	    				</div>
-      				</div>
-      			</div>
-      			<div class="col-md-4 projects">
-      				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/flights1.jpg);">
-      					<div class="overlay"></div>
-  	    				<div class="text text-center p-4">
-  	    					<h3>Flight Guru - Flight Recommendation Web App</h3>
-  	    					<span>Relational and Non-Relational Databases, Polyglot Persistence</span>
-  							<ul class = "text-center ftco-project-links list-unstyled">
-  								<li class="ftco-animate"><a href="https://github.com/karan7798z/Flight-Guru" target="_blank"><span class="project-icon icon-github"></span></a></li>
-  							</ul>
-  	    				</div>
-      				</div>
-      			</div>
-      			<div class="col-md-4 projects">
-      				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/PCA.png);">
-      					<div class="overlay"></div>
-  	    				<div class="text text-center p-4">
-  	    					<h3>Principal Component Analysis with Numpy</h3>
-  	    					<span>Dimensionality Reduction</span>
-  							<ul class = "text-center ftco-project-links list-unstyled">
-  								<li class="ftco-animate"><a href="https://github.com/karan7798z/PCA-with-Numpy" target="_blank"><span class="project-icon icon-github"></span></a></li>
-  							</ul>
-  	    				</div>
-      				</div>
-      			</div>
-      		</div>
+    			</div>
+    			<div class="col-md-4 projects dataEngineering">
+    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/flights1.jpg);">
+    					<div class="overlay"></div>
+	    				<div class="text text-center p-4">
+	    					<h3>Flight Guru - Flight Recommendation Web App</h3>
+	    					<span>Relational and Non-Relational Databases, Polyglot Persistence</span>
+							<ul class = "text-center ftco-project-links list-unstyled">
+								<li class="ftco-animate"><a href="https://github.com/karan7798z/Flight-Guru" target="_blank"><span class="project-icon icon-github"></span></a></li>
+							</ul>
+	    				</div>
+    				</div>
+    			</div>
+    			<div class="col-md-4 projects machineLearning">
+    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/PCA.png);">
+    					<div class="overlay"></div>
+	    				<div class="text text-center p-4">
+	    					<h3>Principal Component Analysis with Numpy</h3>
+	    					<span>Dimensionality Reduction</span>
+							<ul class = "text-center ftco-project-links list-unstyled">
+								<li class="ftco-animate"><a href="https://github.com/karan7798z/PCA-with-Numpy" target="_blank"><span class="project-icon icon-github"></span></a></li>
+							</ul>
+	    				</div>
+    				</div>
+    			</div>
+    		</div>
     	</div>
     </section>
     <section class="ftco-section ftco-hireme img">
