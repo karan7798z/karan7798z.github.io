@@ -2795,6 +2795,7 @@ textarea.form-control {
   padding: 0;
   margin: 0;
   display: none;
+  border: 0.05rem solid #2DACA0;
 }
 
 .showProject{
